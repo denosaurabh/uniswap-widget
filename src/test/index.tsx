@@ -4,6 +4,7 @@ import { render, RenderOptions, RenderResult } from '@testing-library/react'
 import tokenList, { tokens } from '@uniswap/default-token-list'
 import { TestableWidget, TestableWidgetProps } from 'components/Widget'
 import { JSON_RPC_FALLBACK_ENDPOINTS } from 'constants/jsonRpcEndpoints'
+import { providers } from 'ethers/src.ts/ethers'
 import { dynamicActivate } from 'i18n'
 import fetch from 'jest-fetch-mock'
 import { Atom, Provider as AtomProvider } from 'jotai'
@@ -112,6 +113,15 @@ export function renderWidget(ui: ReactElement, options?: WidgetRenderOptions): R
     defaultChainId: options?.defaultChainId ?? 1,
     tokenList: options?.tokenList ?? tokens,
     initialAtomValues: options?.initialAtomValues,
+
+    // data
+    // provider: Provider
+    jsonRpcProvider: new providers.JsonRpcProvider(),
+    signer: undefined,
+    address: '',
+    chainId: 137,
+    account: '',
+    isActive: true,
   }
   const result = render(<TestableWidget {...props}>{ui}</TestableWidget>, options)
 

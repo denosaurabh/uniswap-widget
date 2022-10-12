@@ -11,6 +11,7 @@ import {
 } from '@uniswap/widgets'
 import Row from 'components/Row'
 import { CHAIN_NAMES_TO_IDS } from 'constants/chains'
+import { providers } from 'ethers/src.ts/ethers'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useValue } from 'react-cosmos/fixture'
 import { chain, useAccount, useConnect, useNetwork, useProvider, useSigner, WagmiConfig } from 'wagmi'
@@ -137,6 +138,7 @@ function Fixture() {
       width={width}
       routerUrl={routerUrl}
       // data
+      jsonRpcProvider={new providers.JsonRpcProvider()}
       provider={provider}
       signer={data}
       address={`${address}`}
@@ -159,7 +161,7 @@ function Fixture() {
   )
 }
 
-const { chains, provider, webSocketProvider } = configureChains([chain.mainnet, chain.polygon], [publicProvider()])
+const { provider, webSocketProvider } = configureChains([chain.mainnet, chain.polygon], [publicProvider()])
 
 const client = createClient({
   autoConnect: true,
