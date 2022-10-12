@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/macro'
-import { useSigner } from 'components/SignerProvider'
 import ActionButton from 'components/ActionButton'
+import { useSigner } from 'components/SignerProvider'
 import useSwitchChain from 'hooks/useSwitchChain'
 import { Spinner } from 'icons'
 import { useCallback, useMemo, useState } from 'react'
