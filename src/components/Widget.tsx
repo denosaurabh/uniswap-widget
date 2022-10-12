@@ -36,6 +36,7 @@ export const WidgetWrapper = styled.div<{ width?: number | string }>`
   min-height: 360px;
   min-width: 300px;
   padding: 8px;
+
   position: relative;
 
   user-select: none;

@@ -1,8 +1,8 @@
 {
-  "name": "@uniswap/widgets",
+  "name": "@deno/uniswap-widget",
   "description": "Uniswap Interface",
-  "homepage": "https://github.com/Uniswap/widgets#readme",
-  "repository": "https://github.com/Uniswap/widgets",
+  "homepage": "https://github.com/denosaurabh/uniswap-widget#readme",
+  "repository": "https://github.com/denosaurabh/uniswap-widget",
   "files": [
     "dist"
   ],
