@@ -105,10 +105,11 @@ export interface WidgetRenderOptions extends RenderOptions, TestableWidgetProps 
 
 export function renderWidget(ui: ReactElement, options?: WidgetRenderOptions): RenderResult {
   const props: TestableWidgetProps = {
+    // @ts-ignore-next-line
     provider: options?.provider ?? hardhat.provider,
     jsonRpcUrlMap: options?.jsonRpcUrlMap ?? {
       ...JSON_RPC_FALLBACK_ENDPOINTS,
-      1: [hardhat.url],
+      // 1: [hardhat.url],
     },
     defaultChainId: options?.defaultChainId ?? 1,
     tokenList: options?.tokenList ?? tokens,
