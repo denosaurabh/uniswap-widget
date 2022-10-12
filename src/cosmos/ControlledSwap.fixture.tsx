@@ -2,7 +2,7 @@ import { tokens } from '@uniswap/default-token-list'
 import { Currency, TradeType } from '@uniswap/sdk-core'
 import { Field, SupportedChainId, SwapWidget } from '@uniswap/widgets'
 import Row from 'components/Row'
-import { providers } from 'ethers/src.ts/ethers'
+import { providers } from 'ethers/lib/index'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useValue } from 'react-cosmos/fixture'
 import {
