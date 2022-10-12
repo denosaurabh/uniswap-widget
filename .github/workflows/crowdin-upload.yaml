@@ -25,4 +25,4 @@ jobs:
           token: ${{ secrets.CROWDIN_TOKEN }}
           project_id: 458284
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
