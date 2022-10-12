@@ -15,7 +15,6 @@ describe('fetchTokenList', () => {
   //   await expect(fetchTokenList(url, resolver)).rejects.toThrowError(`failed to fetch list: ${url}`)
   //   expect(resolver).not.toHaveBeenCalled()
   // })
-
   it('tries to fetch an ENS address using the passed resolver', async () => {
     const url = 'example.eth'
     const contenthash = '0xD3ADB33F'
