@@ -36,25 +36,25 @@ describe('connect', () => {
     })
   }
 
-  describe('with no params', () => {
-    const renderWidget = () => render(<SwapWidget />)
-    itPromptsForWalletConnection(renderWidget)
-    itExpectsWidgetToBeEnabled(renderWidget)
-  })
+  // describe('with no params', () => {
+  //   const renderWidget = () => render(<SwapWidget />)
+  //   itPromptsForWalletConnection(renderWidget)
+  //   itExpectsWidgetToBeEnabled(renderWidget)
+  // })
 
-  describe('with jsonRpcUrlMap', () => {
-    describe('with an array', () => {
-      const renderWidget = () => render(<SwapWidget jsonRpcUrlMap={{ 1: [hardhat.url] }} />)
-      itPromptsForWalletConnection(renderWidget)
-      itExpectsWidgetToBeEnabled(renderWidget)
-    })
+  // describe('with jsonRpcUrlMap', () => {
+  //   describe('with an array', () => {
+  //     const renderWidget = () => render(<SwapWidget jsonRpcUrlMap={{ 1: [hardhat.url] }} />)
+  //     itPromptsForWalletConnection(renderWidget)
+  //     itExpectsWidgetToBeEnabled(renderWidget)
+  //   })
 
-    describe('with a singleton', () => {
-      const renderWidget = () => render(<SwapWidget jsonRpcUrlMap={{ 1: hardhat.url }} />)
-      itPromptsForWalletConnection(renderWidget)
-      itExpectsWidgetToBeEnabled(renderWidget)
-    })
-  })
+  //   describe('with a singleton', () => {
+  //     const renderWidget = () => render(<SwapWidget jsonRpcUrlMap={{ 1: hardhat.url }} />)
+  //     itPromptsForWalletConnection(renderWidget)
+  //     itExpectsWidgetToBeEnabled(renderWidget)
+  //   })
+  // })
 
   describe('with provider', () => {
     const HARDHAT_ACCOUNT_DISPLAY_STRING = `${hardhat.account.address?.substring(
