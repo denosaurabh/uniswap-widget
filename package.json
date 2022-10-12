@@ -41,7 +41,7 @@
     "release": "semantic-release",
     "lint": "eslint .",
     "test": "jest src",
-    "test:e2e": "jest e2e"
+    "test:e2e": "jest e2e --passWithNoTests"
   },
   "browserslist": {
     "production": [
