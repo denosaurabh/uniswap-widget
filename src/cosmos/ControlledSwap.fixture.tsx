@@ -2,9 +2,19 @@ import { tokens } from '@uniswap/default-token-list'
 import { Currency, TradeType } from '@uniswap/sdk-core'
 import { Field, SupportedChainId, SwapWidget } from '@uniswap/widgets'
 import Row from 'components/Row'
+import { providers } from 'ethers/src.ts/ethers'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useValue } from 'react-cosmos/fixture'
-import { chain, useAccount, useConnect, useProvider, useSigner, WagmiConfig } from 'wagmi'
+import {
+  chain,
+  useAccount,
+  useConnect,
+  useNetwork,
+  useProvider,
+  useSigner,
+  useWebSocketProvider,
+  WagmiConfig,
+} from 'wagmi'
 import { configureChains, createClient } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { publicProvider } from 'wagmi/providers/public'
@@ -15,7 +25,7 @@ import useOption from './useOption'
 // import useProvider, { INFURA_NETWORK_URLS } from './useProvider'
 import { INFURA_NETWORK_URLS } from './useProvider'
 
-const { chains, provider, webSocketProvider } = configureChains([chain.mainnet, chain.polygon], [publicProvider()])
+const { provider, webSocketProvider } = configureChains([chain.mainnet, chain.polygon], [publicProvider()])
 
 const client = createClient({
   autoConnect: true,
@@ -73,6 +83,8 @@ function Fixture() {
   const { address, isConnected } = useAccount()
   const provider = useProvider()
   const { data, isLoading: signerLoading } = useSigner()
+  const websocketProvider = useWebSocketProvider()
+  const { chain } = useNetwork()
 
   useEffect(() => {
     if (!window) return
@@ -82,7 +94,7 @@ function Fixture() {
     }
   }, [isConnected])
 
-  if (isLoading || signerLoading || !provider || !data) return <></>
+  if (isLoading || signerLoading || !provider || !data || !chain?.id) return <></>
 
   return (
     <Row flex align="start" justify="start" gap={0.5}>
@@ -105,6 +117,8 @@ function Fixture() {
         signer={data}
         address={`${address}`}
         account={`${address}`}
+        jsonRpcProvider={new providers.JsonRpcProvider()}
+        chainId={chain.id}
         isActive
         {...eventHandlers}
       />
